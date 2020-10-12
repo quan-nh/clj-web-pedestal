@@ -1,6 +1,7 @@
 # clj-web-pedestal
 
 - part 1: [Hello World Service](doc/hello-world-service.md)
+- part 2: [Service Routing](doc/service-routing.md)
 
 ## Getting Started
 
