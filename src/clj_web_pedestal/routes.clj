@@ -11,10 +11,10 @@
 (defn view-users [{{:keys [user-id]} :path-params}]
   (ring-resp/response (str "Hello " user-id)))
 
-(defn db-page [{:keys [db]}]
+(defn db-page [{:keys [ds]}]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    (jdbc/execute-one! (db) ["SELECT 3*5 AS result"])})
+   :body    (jdbc/execute-one! ds ["SELECT 3*5 AS result"])})
 
 (def common-interceptors [(body-params/body-params) http/html-body])
 

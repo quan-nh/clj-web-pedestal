@@ -7,12 +7,12 @@
   [service-map]
   (= :test (:env service-map)))
 
-(defn db-interceptor [db]
+(defn db-interceptor [ds]
   (interceptor
     {:name ::db-interceptor
      :enter
            (fn [context]
-             (update context :request assoc :db db))}))
+             (update context :request assoc :ds ds))}))
 
 (defrecord Server [service-map db server]
   component/Lifecycle
@@ -21,7 +21,7 @@
       this
       (let [runnable-service (-> service-map
                                  http/default-interceptors
-                                 (update ::http/interceptors conj (db-interceptor db))
+                                 (update ::http/interceptors conj (db-interceptor (:ds db)))
                                  http/create-server)]
         (assoc this :server (if (test? service-map)
                               runnable-service

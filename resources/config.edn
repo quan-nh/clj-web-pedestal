@@ -1,0 +1,5 @@
+{:db-spec
+ {:dbtype   "h2"
+  :dbname   "example"
+  :username "sa"
+  :password ""}}

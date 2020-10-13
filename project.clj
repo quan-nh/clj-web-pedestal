@@ -9,6 +9,7 @@
                  [seancorfield/next.jdbc "1.1.588"]
                  [com.h2database/h2 "1.4.199"]
                  [com.zaxxer/HikariCP "3.4.5"]
+                 [aero "1.1.6"]
 
                  ;; Remove this line and uncomment one of the next lines to
                  ;; use Immutant or Tomcat instead of Jetty:
@@ -28,4 +29,5 @@
                        :dependencies [[com.stuartsierra/component.repl "0.2.0"]]}
              :uberjar {:aot [clj-web-pedestal.system]}}
   :repl-options {:init-ns user}
+  :global-vars {*warn-on-reflection* true}
   :main ^{:skip-aot true} clj-web-pedestal.system)
