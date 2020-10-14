@@ -3,8 +3,9 @@
 - part 1: [Hello World Service](doc/hello-world-service.md)
 - part 2: [Service Routing](doc/service-routing.md)
 - part 3: [Component & Reloadable Workflow](doc/component.md) 
-- part 4: [DB](doc/db.md)
+- part 4: [Db](doc/db.md)
 - part 5: [Config](doc/config.md)
+- part 6: [Api](doc/api.md)
 
 ## Getting Started
 

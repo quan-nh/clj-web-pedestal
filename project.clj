@@ -4,12 +4,13 @@
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [io.pedestal/pedestal.service "0.5.8"]
+                 [io.pedestal/pedestal.service "0.5.8" :exclusions [com.fasterxml.jackson.core/jackson-core]]
                  [com.stuartsierra/component "1.0.0"]
                  [seancorfield/next.jdbc "1.1.588"]
                  [com.h2database/h2 "1.4.199"]
                  [com.zaxxer/HikariCP "3.4.5"]
                  [aero "1.1.6"]
+                 [metosin/muuntaja "0.6.7"]
 
                  ;; Remove this line and uncomment one of the next lines to
                  ;; use Immutant or Tomcat instead of Jetty:
