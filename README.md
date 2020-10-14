@@ -6,6 +6,7 @@
 - part 4: [Db](doc/db.md)
 - part 5: [Config](doc/config.md)
 - part 6: [Api](doc/api.md)
+- part 7: [Logging](doc/log.md)
 
 ## Getting Started
 

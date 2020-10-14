@@ -1,3 +1,5 @@
+`logback.xml`
+```xml
 <configuration>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -17,3 +19,11 @@
     </root>
 
 </configuration>
+```
+
+then we can use that
+```clj
+(:require [io.pedestal.log :as log])
+
+(log/debug :req req)
+```
