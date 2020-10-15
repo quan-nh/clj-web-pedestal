@@ -12,11 +12,13 @@
   (-> (component/system-map
         :config config
         :db (db/new-db)
-        :service-map {:env          env
-                      ::http/routes routes/routes
-                      ::http/type   :jetty
-                      ::http/port   8080
-                      ::http/join?  false}
+        :service-map {:env                  env
+                      ::http/routes         routes/routes
+                      ::http/resource-path  "/public"
+                      ::http/secure-headers {:content-security-policy-settings {:object-src "none"}}
+                      ::http/type           :jetty
+                      ::http/port           8080
+                      ::http/join?          false}
         :server (server/new-server))
 
       (component/system-using

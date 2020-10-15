@@ -5,7 +5,9 @@
             [next.jdbc :as jdbc]
             [muuntaja.interceptor :refer [format-interceptor]]
             [io.pedestal.log :as log]
-            [io.pedestal.interceptor.error :refer [error-dispatch]]))
+            [io.pedestal.interceptor.error :refer [error-dispatch]]
+            [io.pedestal.http.sse :as sse]
+            [clojure.core.async :as async]))
 
 (defn home-page
   [request]
@@ -22,6 +24,12 @@
   [request]
   (ring-resp/response (str "Bad division: " (/ 3 0))))
 
+(defn stream-ready [event-chan context]
+  (dotimes [_ 20]
+    (async/>!! event-chan {:name "foo" :data "bar"})
+    (Thread/sleep 1000))
+  (async/close! event-chan))
+
 (def error-handler
   (error-dispatch [ctx ex]
 
@@ -37,4 +45,5 @@
 (def routes #{["/" :get (conj common-interceptors `home-page)]
               ["/users/:user-id" :get (conj common-interceptors `view-users)]
               ["/db" :get (conj common-interceptors `db-page)]
-              ["/div" :get (conj common-interceptors `bad-page)]})
+              ["/div" :get (conj common-interceptors `bad-page)]
+              ["/events" :get (sse/start-event-stream stream-ready)]})
