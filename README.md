@@ -7,6 +7,9 @@
 - part 5: [Config](doc/config.md)
 - part 6: [Api](doc/api.md)
 - part 7: [Logging](doc/log.md)
+- part 8: [Error Handling](doc/error.md)
+- part 9: [Server-Sent Events](doc/sse.md)
+- part 10: [Auth](doc/auth.md)
 
 ## Getting Started
 
