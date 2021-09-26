@@ -11,6 +11,7 @@
 
 (defn home-page
   [request]
+  (tap> request) ;; Register a tap handler (add-tap (bound-fn* clojure.pprint/pprint))
   (ring-resp/response "Hello World!"))
 
 (defn view-users [{{:keys [user-id]} :path-params}]
